@@ -50,13 +50,13 @@ def preprocess_text(text):
     return text
 
 # Custom cache key builder
-def custom_key_builder(args, kwargs):
+def custom_key_builder(f, *args, **kwargs):
     return args[0]
 
 # Run TTS and save file
 # Returns the path to the file
-@cached(ttl=3600, cache=SimpleMemoryCache, key_builder=functools.partial(custom_key_builder))
-async def run_tts_and_save_file(sentence):
+@cached(ttl=60 * 60, key_builder=custom_key_builder)
+async def run_tts_and_save_file(sentence: str):
     # Running the TTS
     mel_outputs, mel_length, alignment = tacotron2.encode_batch([sentence])
 
@@ -209,3 +209,4 @@ if __name__ == "__main__":
     # Start the FastAPI server
     logging.info("[Speech REST API] Starting server...")
     uvicorn.run("app_ex:app", host="0.0.0.0", port=3000, log_level="info")
+
