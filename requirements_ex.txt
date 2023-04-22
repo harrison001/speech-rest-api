@@ -1,0 +1,16 @@
+certifi==2022.12.7
+cachetools==5.0.0
+fastapi==0.70.0
+fasteners==0.16.3
+huggingface-hub==0.12.1
+num2words==0.5.12
+numpy==1.24.2
+pydantic==1.10.0
+PyYAML==6.0
+speechbrain==0.5.13
+starlette
+torch==1.13.1
+torchaudio==0.13.1
+whisper
+uvicorn==0.17.1
+

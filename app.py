@@ -157,6 +157,7 @@ def clean():
     return jsonify({'status': 'ok'}), 200
 
 # Entry point
+#gunicorn --workers 4  --daemon --access-logfile access.log --error-logfile error.log app:app
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 3000))
 
