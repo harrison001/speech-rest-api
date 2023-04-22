@@ -203,8 +203,6 @@ model = whisper.load_model("base")
 # Create lock object
 lock_file = os.path.join(tempfile.gettempdir(), "tmp-lockfile")
 
-
-
 if __name__ == "__main__":
     # Start the FastAPI server
     logging.info("[Speech REST API] Starting server...")
